@@ -74,3 +74,15 @@ Pattern guide: `src/problems/06-graphs-dp/PATTERN_GUIDE.md`
 - [ ] Redo missed linked-list/tree problems from scratch.
 - [ ] Redo missed graph/DP problems from scratch.
 - [ ] Do at least two 25-30 minute mock problems while talking out loud.
+
+## Optional Bonus Gap-Fillers
+
+Use these after the core track, during review days, or when one of these shapes feels weak.
+
+Pattern guide: `src/problems/07-bonus-gap-fillers/PATTERN_GUIDE.md`
+
+- [ ] 31. Rotate Image: `npm run problem -- 07-01` (`src/problems/07-bonus-gap-fillers/01-rotate-image.ts`)
+- [ ] 32. Flatten Deeply Nested Array: `npm run problem -- 07-02` (`src/problems/07-bonus-gap-fillers/02-flatten-deeply-nested-array.ts`)
+- [ ] 33. Product of Array Except Self: `npm run problem -- 07-03` (`src/problems/07-bonus-gap-fillers/03-product-of-array-except-self.ts`)
+- [ ] 34. Merge Intervals: `npm run problem -- 07-04` (`src/problems/07-bonus-gap-fillers/04-merge-intervals.ts`)
+- [ ] 35. Subsets: `npm run problem -- 07-05` (`src/problems/07-bonus-gap-fillers/05-subsets.ts`)
