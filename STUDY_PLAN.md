@@ -86,3 +86,4 @@ Pattern guide: `src/problems/07-bonus-gap-fillers/PATTERN_GUIDE.md`
 - [ ] 33. Product of Array Except Self: `npm run problem -- 07-03` (`src/problems/07-bonus-gap-fillers/03-product-of-array-except-self.ts`)
 - [ ] 34. Merge Intervals: `npm run problem -- 07-04` (`src/problems/07-bonus-gap-fillers/04-merge-intervals.ts`)
 - [ ] 35. Subsets: `npm run problem -- 07-05` (`src/problems/07-bonus-gap-fillers/05-subsets.ts`)
+- [ ] 36. Maximum Units on a Truck: `npm run problem -- 07-06` (`src/problems/07-bonus-gap-fillers/06-maximum-units-on-a-truck.ts`)
