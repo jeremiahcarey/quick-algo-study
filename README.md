@@ -2,7 +2,7 @@
 
 A tiny TypeScript kata repo for doing a bare-minimum, high-yield review of common LeetCode-style interview patterns.
 
-This is not a giant problem bank. It is a focused 1-2 week practice track: 30 common problems, ordered by pattern, with blank solution stubs, tests, problem prompts, and lightweight pattern notes.
+This is not a giant problem bank or a complete course. It is a focused 1-2 week practice track, assuming at least a very basic familiarity with common data structures: 30 common problems, ordered by pattern, with blank solution stubs, tests, problem prompts, and lightweight pattern notes.
 
 ## Who This Is For
 
