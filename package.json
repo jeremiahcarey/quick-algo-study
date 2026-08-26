@@ -1,0 +1,12 @@
+{
+  "name": "quick-algo-study",
+  "version": "1.0.0",
+  "description": "A dependency-free TypeScript kata track for quick LeetCode-style interview pattern practice.",
+  "type": "module",
+  "scripts": {
+    "test": "node --experimental-strip-types --test test/**/*.test.ts",
+    "test:watch": "node --experimental-strip-types --watch --test test/**/*.test.ts",
+    "test:file": "node --experimental-strip-types --test",
+    "problem": "node scripts/run-problem.mjs"
+  }
+}
