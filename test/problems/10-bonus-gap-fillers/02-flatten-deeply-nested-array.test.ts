@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import {
   flattenDeeplyNestedArray,
   type NestedArray,
-} from "../../../src/problems/07-bonus-gap-fillers/02-flatten-deeply-nested-array.ts";
+} from "../../../src/problems/10-bonus-gap-fillers/02-flatten-deeply-nested-array.ts";
 
 describe("flattenDeeplyNestedArray", () => {
   it("does not flatten anything when n is zero", () => {

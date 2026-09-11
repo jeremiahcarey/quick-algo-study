@@ -5,7 +5,7 @@
  * Return 0 if no profitable transaction is possible.
  *
  * Example:
- * prices = [7, 1, 5, 3, 6, 4]
+ * prices = [7, 2, 5, 1, 3, 6, 4]
  * returns 5 by buying at 1 and selling at 6
  */
 export function maxProfit(prices: number[]): number {

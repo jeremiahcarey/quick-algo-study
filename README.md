@@ -2,7 +2,7 @@
 
 A tiny TypeScript kata repo for doing a bare-minimum, high-yield review of common LeetCode-style interview patterns.
 
-This is not a giant problem bank or a complete course. It is a focused 1-2 week practice track, assuming at least a very basic familiarity with common data structures: 30 core problems plus 6 optional bonus gap-fillers, ordered by pattern, with blank solution stubs, tests, problem prompts, example inputs/outputs, and lightweight pattern notes.
+This is not a giant problem bank or a complete course. It is a focused 2-3 week practice track, assuming at least a very basic familiarity with common data structures: 36 core problems plus 5 optional bonus gap-fillers, ordered by pattern, with blank solution stubs, tests, problem prompts, example inputs/outputs, and lightweight pattern notes.
 
 ## Who This Is For
 
@@ -15,8 +15,11 @@ The goal is to get comfortable with the recurring shapes:
 - stacks and binary search
 - linked lists
 - trees
-- graphs and intro dynamic programming
-- optional gap-fillers for matrix transforms, nested arrays, prefix/suffix, intervals, backtracking, and greedy
+- graphs
+- dynamic programming
+- greedy
+- heap and priority queue
+- optional gap-fillers for matrix transforms, nested arrays, prefix/suffix, intervals, and backtracking
 
 ## Quick Start
 
@@ -67,6 +70,8 @@ Open `STUDY_PLAN.md` and choose the first unchecked problem. The checklist inclu
 Read the problem description in the source file before opening the tests. This keeps the first attempt closer to an interview.
 
 If you are not sure which pattern applies, skim the category's `PATTERN_GUIDE.md`.
+
+Before linked lists, trees, or graphs, read `MECHANICS_GUIDE.md` and practice typing the traversal skeletons once or twice from memory.
 
 ### 2. Try To Implement It
 
@@ -133,21 +138,21 @@ Shortcut options:
 
 ## Study Materials
 
-- `STUDY_PLAN.md`: the 14-day checklist
+- `STUDY_PLAN.md`: the 21-day checklist
+- `MECHANICS_GUIDE.md`: traversal skeletons for linked lists, trees, and graphs
 - `src/problems/**/PATTERN_GUIDE.md`: pattern tells and problem tips
 - `test/problems/**/*.test.ts`: examples and edge cases
 - `test/helpers`: linked list, tree, and graph builders used by tests
 
 ## Optional Bonus Problems
 
-The `07-bonus-gap-fillers` section adds six common missing shapes after the core track:
+The `10-bonus-gap-fillers` section adds five common missing shapes after the core track:
 
 - Rotate Image
 - Flatten Deeply Nested Array
 - Product of Array Except Self
 - Merge Intervals
 - Subsets
-- Maximum Units on a Truck
 
 These are useful if you finish early, want extra review, or notice one of those patterns feels shaky.
 

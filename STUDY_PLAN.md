@@ -1,10 +1,12 @@
-# 14-Day Interview Kata Plan
+# 21-Day Interview Kata Plan
 
-This is a compact study plan for common LeetCode-style interview patterns. It is meant for people who have about 1-2 weeks and 30-60 minutes per day, and want a practical minimum path through the highest-yield problem shapes.
+This is a compact study plan for common LeetCode-style interview patterns. It is meant for people who have about 2-3 weeks and 30-60 minutes per day, and want a practical minimum path through the highest-yield problem shapes.
 
 Work top to bottom. Spend 20-25 minutes attempting a problem, then read or watch an explanation elsewhere if needed. After that, come back and re-code the solution yourself.
 
 Each checklist item includes the command to run that problem's tests and the source file to edit.
+
+Before starting linked lists, trees, or graphs, read `MECHANICS_GUIDE.md` and type the traversal skeletons from memory.
 
 ## Days 1-2: Arrays & Hashing
 
@@ -55,35 +57,52 @@ Pattern guide: `src/problems/05-trees/PATTERN_GUIDE.md`
 - [ ] 23. Validate BST: `npm run problem -- 05-05` (`src/problems/05-trees/05-validate-bst.ts`)
 - [ ] 24. Lowest Common Ancestor: `npm run problem -- 05-06` (`src/problems/05-trees/06-lowest-common-ancestor.ts`)
 
-## Days 11-12: Graphs + Intro DP
+## Days 11-12: Graphs
 
-Pattern guide: `src/problems/06-graphs-dp/PATTERN_GUIDE.md`
+Pattern guide: `src/problems/06-graphs/PATTERN_GUIDE.md`
 
-- [ ] 25. Number of Islands: `npm run problem -- 06-01` (`src/problems/06-graphs-dp/01-number-of-islands.ts`)
-- [ ] 26. Clone Graph: `npm run problem -- 06-02` (`src/problems/06-graphs-dp/02-clone-graph.ts`)
-- [ ] 27. Course Schedule: `npm run problem -- 06-03` (`src/problems/06-graphs-dp/03-course-schedule.ts`)
-- [ ] 28. Climbing Stairs: `npm run problem -- 06-04` (`src/problems/06-graphs-dp/04-climbing-stairs.ts`)
-- [ ] 29. House Robber: `npm run problem -- 06-05` (`src/problems/06-graphs-dp/05-house-robber.ts`)
-- [ ] 30. Coin Change: `npm run problem -- 06-06` (`src/problems/06-graphs-dp/06-coin-change.ts`)
+- [ ] 25. Number of Islands: `npm run problem -- 06-01` (`src/problems/06-graphs/01-number-of-islands.ts`)
+- [ ] 26. Clone Graph: `npm run problem -- 06-02` (`src/problems/06-graphs/02-clone-graph.ts`)
+- [ ] 27. Course Schedule: `npm run problem -- 06-03` (`src/problems/06-graphs/03-course-schedule.ts`)
 
-## Days 13-14: Mixed Review + Mock Timing
+## Days 13-15: Dynamic Programming
+
+Pattern guide: `src/problems/07-dynamic-programming/PATTERN_GUIDE.md`
+
+- [ ] 28. Climbing Stairs: `npm run problem -- 07-01` (`src/problems/07-dynamic-programming/01-climbing-stairs.ts`)
+- [ ] 29. House Robber: `npm run problem -- 07-02` (`src/problems/07-dynamic-programming/02-house-robber.ts`)
+- [ ] 30. Coin Change: `npm run problem -- 07-03` (`src/problems/07-dynamic-programming/03-coin-change.ts`)
+- [ ] 31. Longest Increasing Subsequence: `npm run problem -- 07-04` (`src/problems/07-dynamic-programming/04-longest-increasing-subsequence.ts`)
+- [ ] 32. Word Break: `npm run problem -- 07-05` (`src/problems/07-dynamic-programming/05-word-break.ts`)
+- [ ] 33. Longest Common Subsequence: `npm run problem -- 07-06` (`src/problems/07-dynamic-programming/06-longest-common-subsequence.ts`)
+
+## Days 16-17: Greedy & Heap
+
+Greedy pattern guide: `src/problems/08-greedy/PATTERN_GUIDE.md`
+
+Heap pattern guide: `src/problems/09-heap/PATTERN_GUIDE.md`
+
+- [ ] 34. Maximum Units on a Truck: `npm run problem -- 08-01` (`src/problems/08-greedy/01-maximum-units-on-a-truck.ts`)
+- [ ] 35. Jump Game: `npm run problem -- 08-02` (`src/problems/08-greedy/02-jump-game.ts`)
+- [ ] 36. Kth Largest Element in an Array: `npm run problem -- 09-01` (`src/problems/09-heap/01-kth-largest-element.ts`)
+
+## Days 18-21: Mixed Review + Mock Timing
 
 - [ ] Redo missed arrays/hash problems from scratch.
 - [ ] Redo missed pointer/window problems from scratch.
 - [ ] Redo missed stack/search problems from scratch.
 - [ ] Redo missed linked-list/tree problems from scratch.
-- [ ] Redo missed graph/DP problems from scratch.
+- [ ] Redo missed graph/DP/greedy/heap problems from scratch.
 - [ ] Do at least two 25-30 minute mock problems while talking out loud.
 
 ## Optional Bonus Gap-Fillers
 
 Use these after the core track, during review days, or when one of these shapes feels weak.
 
-Pattern guide: `src/problems/07-bonus-gap-fillers/PATTERN_GUIDE.md`
+Pattern guide: `src/problems/10-bonus-gap-fillers/PATTERN_GUIDE.md`
 
-- [ ] 31. Rotate Image: `npm run problem -- 07-01` (`src/problems/07-bonus-gap-fillers/01-rotate-image.ts`)
-- [ ] 32. Flatten Deeply Nested Array: `npm run problem -- 07-02` (`src/problems/07-bonus-gap-fillers/02-flatten-deeply-nested-array.ts`)
-- [ ] 33. Product of Array Except Self: `npm run problem -- 07-03` (`src/problems/07-bonus-gap-fillers/03-product-of-array-except-self.ts`)
-- [ ] 34. Merge Intervals: `npm run problem -- 07-04` (`src/problems/07-bonus-gap-fillers/04-merge-intervals.ts`)
-- [ ] 35. Subsets: `npm run problem -- 07-05` (`src/problems/07-bonus-gap-fillers/05-subsets.ts`)
-- [ ] 36. Maximum Units on a Truck: `npm run problem -- 07-06` (`src/problems/07-bonus-gap-fillers/06-maximum-units-on-a-truck.ts`)
+- [ ] 37. Rotate Image: `npm run problem -- 10-01` (`src/problems/10-bonus-gap-fillers/01-rotate-image.ts`)
+- [ ] 38. Flatten Deeply Nested Array: `npm run problem -- 10-02` (`src/problems/10-bonus-gap-fillers/02-flatten-deeply-nested-array.ts`)
+- [ ] 39. Product of Array Except Self: `npm run problem -- 10-03` (`src/problems/10-bonus-gap-fillers/03-product-of-array-except-self.ts`)
+- [ ] 40. Merge Intervals: `npm run problem -- 10-04` (`src/problems/10-bonus-gap-fillers/04-merge-intervals.ts`)
+- [ ] 41. Subsets: `npm run problem -- 10-05` (`src/problems/10-bonus-gap-fillers/05-subsets.ts`)

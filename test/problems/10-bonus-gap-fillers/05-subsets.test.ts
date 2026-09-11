@@ -1,6 +1,6 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
-import { subsets } from "../../../src/problems/07-bonus-gap-fillers/05-subsets.ts";
+import { subsets } from "../../../src/problems/10-bonus-gap-fillers/05-subsets.ts";
 
 function normalize(groups: number[][]): number[][] {
   return groups

@@ -1,6 +1,6 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
-import { climbStairs } from "../../../src/problems/06-graphs-dp/04-climbing-stairs.ts";
+import { climbStairs } from "../../../src/problems/07-dynamic-programming/01-climbing-stairs.ts";
 
 describe("climbStairs", () => {
   it("counts ways to climb two steps", () => {

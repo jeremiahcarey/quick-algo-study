@@ -1,6 +1,6 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
-import { productExceptSelf } from "../../../src/problems/07-bonus-gap-fillers/03-product-of-array-except-self.ts";
+import { productExceptSelf } from "../../../src/problems/10-bonus-gap-fillers/03-product-of-array-except-self.ts";
 
 describe("productExceptSelf", () => {
   it("returns the product of every other number at each index", () => {

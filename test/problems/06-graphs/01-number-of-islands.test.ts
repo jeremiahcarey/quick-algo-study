@@ -1,6 +1,6 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
-import { numIslands } from "../../../src/problems/06-graphs-dp/01-number-of-islands.ts";
+import { numIslands } from "../../../src/problems/06-graphs/01-number-of-islands.ts";
 
 function grid(rows: string[]): string[][] {
   return rows.map((row) => row.split(""));

@@ -1,6 +1,6 @@
 # Bonus Gap-Fillers Pattern Guide
 
-These problems are optional extras for common patterns that the core 30-problem track only lightly covers or does not cover at all.
+These problems are optional extras for common shapes that the core track only lightly covers or does not cover at all.
 
 ## When To Think Matrix Manipulation
 
@@ -17,10 +17,6 @@ Use prefix/suffix passes when each answer needs information from the left side a
 ## When To Think Intervals
 
 Use interval logic when each input item has a start and end. Sorting by start or end often turns many comparisons into one scan.
-
-## When To Think Greedy
-
-Use greedy when a local choice has a clear ranking and taking the best available option cannot make future choices worse.
 
 ## Problem Tips
 
@@ -53,9 +49,3 @@ Use greedy when a local choice has a clear ranking and taking the best available
 - Tell: the problem asks for all possible choices from a unique set.
 - Tip: for each number, branch on including it or skipping it.
 - Watch out: the empty subset is part of the answer.
-
-### 06. Maximum Units On A Truck
-
-- Tell: each box type has a value per box, and the truck has a box-count capacity.
-- Tip: think about which box type is always best to take before lower-value types.
-- Watch out: you may take only some boxes from the final type that fits.

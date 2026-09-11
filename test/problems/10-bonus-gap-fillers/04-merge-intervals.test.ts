@@ -1,6 +1,6 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
-import { mergeIntervals } from "../../../src/problems/07-bonus-gap-fillers/04-merge-intervals.ts";
+import { mergeIntervals } from "../../../src/problems/10-bonus-gap-fillers/04-merge-intervals.ts";
 
 describe("mergeIntervals", () => {
   it("merges overlapping intervals", () => {

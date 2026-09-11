@@ -1,6 +1,6 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
-import { cloneGraph } from "../../../src/problems/06-graphs-dp/02-clone-graph.ts";
+import { cloneGraph } from "../../../src/problems/06-graphs/02-clone-graph.ts";
 import { graphFromAdjacency, graphToAdjacency } from "../../helpers/graph.ts";
 
 describe("cloneGraph", () => {

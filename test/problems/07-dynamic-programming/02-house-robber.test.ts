@@ -1,6 +1,6 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
-import { rob } from "../../../src/problems/06-graphs-dp/05-house-robber.ts";
+import { rob } from "../../../src/problems/07-dynamic-programming/02-house-robber.ts";
 
 describe("rob", () => {
   it("maximizes non-adjacent house values", () => {

@@ -1,6 +1,6 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
-import { maximumUnits } from "../../../src/problems/07-bonus-gap-fillers/06-maximum-units-on-a-truck.ts";
+import { maximumUnits } from "../../../src/problems/08-greedy/01-maximum-units-on-a-truck.ts";
 
 describe("maximumUnits", () => {
   it("maximizes units while respecting truck capacity", () => {

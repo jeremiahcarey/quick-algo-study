@@ -1,6 +1,6 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
-import { rotateImage } from "../../../src/problems/07-bonus-gap-fillers/01-rotate-image.ts";
+import { rotateImage } from "../../../src/problems/10-bonus-gap-fillers/01-rotate-image.ts";
 
 describe("rotateImage", () => {
   it("rotates a 3x3 matrix clockwise in place", () => {

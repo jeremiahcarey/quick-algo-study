@@ -1,6 +1,6 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
-import { coinChange } from "../../../src/problems/06-graphs-dp/06-coin-change.ts";
+import { coinChange } from "../../../src/problems/07-dynamic-programming/03-coin-change.ts";
 
 describe("coinChange", () => {
   it("returns the fewest coins needed to make the amount", () => {
