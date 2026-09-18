@@ -2,7 +2,7 @@
 
 A tiny TypeScript kata repo for doing a bare-minimum, high-yield review of common LeetCode-style interview patterns.
 
-This is not a giant problem bank or a complete course. It is a focused 2-3 week practice track, assuming at least a very basic familiarity with common data structures: 36 core problems plus 5 optional bonus gap-fillers, ordered by pattern, with blank solution stubs, tests, problem prompts, example inputs/outputs, and lightweight pattern notes.
+This is not a giant problem bank or a complete course. It is a compact practice track, assuming at least a very basic familiarity with common data structures: 36 core problems plus 5 optional bonus gap-fillers, ordered by pattern, with blank solution stubs, tests, problem prompts, example inputs/outputs, and tiered study notes. There is no fixed timeline; a comfortable full pass takes about 8-12 weeks, and `STUDY_PLAN.md` has pacing suggestions.
 
 ## Who This Is For
 
@@ -59,7 +59,11 @@ Each solution file contains:
 - the function signature
 - a blank function body for your implementation
 
-Each category folder contains a `PATTERN_GUIDE.md` with pattern-recognition tells and light hints that avoid giving away full solutions.
+Each category folder contains three study files, ordered by spoiler level:
+
+- `PATTERN_GUIDE.md`: what the pattern is, how to spot it, when it does not apply, and its core mechanics and code skeletons
+- `PROBLEM_NOTES.md`: spoiler-light per-problem notes — pattern recognition, clarifying questions to ask an interviewer, and edge cases; safe to read before attempting
+- `HINTS.md`: graduated per-problem hints, from a nudge to a technique to an approach outline; read only when stuck, one hint at a time
 
 ## Daily Workflow
 
@@ -69,9 +73,9 @@ Open `STUDY_PLAN.md` and choose the first unchecked problem. The checklist inclu
 
 Read the problem description in the source file before opening the tests. This keeps the first attempt closer to an interview.
 
-If you are not sure which pattern applies, skim the category's `PATTERN_GUIDE.md`.
+If you are not sure which pattern applies, skim the category's `PATTERN_GUIDE.md`. Before attempting, you can also read the problem's section in `PROBLEM_NOTES.md` — it is spoiler-free and mirrors the clarifying questions you would ask in an interview.
 
-Before linked lists, trees, or graphs, read `MECHANICS_GUIDE.md` and practice typing the traversal skeletons once or twice from memory.
+Before linked lists, trees, or graphs, read those categories' pattern guides and practice typing the traversal skeletons once or twice from memory.
 
 ### 2. Try To Implement It
 
@@ -84,7 +88,7 @@ While solving, practice talking through:
 - the time and space complexity
 - the optimized approach you are coding
 
-Give yourself about 20-25 minutes before looking up an explanation elsewhere.
+Give yourself about 20-25 minutes. If you get stuck, open the category's `HINTS.md` and read one hint at a time, stopping as soon as you have a new idea, before looking up a full explanation elsewhere.
 
 ### 3. Run The One Problem Test
 
@@ -138,9 +142,10 @@ Shortcut options:
 
 ## Study Materials
 
-- `STUDY_PLAN.md`: the 21-day checklist
-- `MECHANICS_GUIDE.md`: traversal skeletons for linked lists, trees, and graphs
-- `src/problems/**/PATTERN_GUIDE.md`: pattern tells and problem tips
+- `STUDY_PLAN.md`: the ordered problem checklist plus pacing suggestions
+- `src/problems/**/PATTERN_GUIDE.md`: pattern recognition, mechanics, and code skeletons
+- `src/problems/**/PROBLEM_NOTES.md`: spoiler-light interview notes for each problem
+- `src/problems/**/HINTS.md`: graduated hints for each problem
 - `test/problems/**/*.test.ts`: examples and edge cases
 - `test/helpers`: linked list, tree, and graph builders used by tests
 
@@ -160,4 +165,4 @@ These are useful if you finish early, want extra review, or notice one of those 
 
 The repo is intentionally small. It is designed to help you practice pattern recognition and implementation fluency, not to replace a full explanations site.
 
-When stuck, spend a focused 20-25 minutes, then read a solution or watch an explanation elsewhere. After that, come back here and re-code the solution without looking.
+When stuck, spend a focused 20-25 minutes, then climb the category's `HINTS.md` ladder one hint at a time. If you still need a full explanation, read or watch one elsewhere. Either way, come back afterward and re-code the solution without looking.

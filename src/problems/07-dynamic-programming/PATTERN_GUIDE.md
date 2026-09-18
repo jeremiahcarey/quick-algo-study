@@ -1,63 +1,128 @@
 # Dynamic Programming Pattern Guide
 
-Dynamic programming is useful when the same subproblem appears many times and a current answer can be built from earlier answers.
+Dynamic programming is for problems where the same smaller questions appear again and again, and the answer to the full problem can be built from answers you have already solved.
 
-## When To Think DP
+The core idea is to trade repeated guessing for stored progress: define a useful smaller answer, compute it once, and reuse it whenever a larger answer needs it.
 
-- The prompt asks for the number of ways, best value, minimum cost, or longest length.
-- A brute-force recursion branches into repeated states.
-- The decision at index `i` depends on earlier indexes, smaller amounts, or prefixes of strings.
+## Core Idea
 
-## Core Template
+A DP problem usually has two ingredients:
 
-1. Define the state in plain English.
-2. Choose what each `dp` entry stores.
-3. Set base cases.
-4. Write the recurrence from smaller states to larger states.
-5. Return the entry that answers the original question.
+- Overlapping subproblems: brute force reaches the same smaller input many times.
+- Optimal or countable structure: the current answer depends on earlier indexes, smaller amounts, shorter prefixes, or previous choices.
+
+Think in terms of dependencies. If answer `i` only needs answers before `i`, or answer `(i, j)` only needs smaller prefixes, you can fill those answers in a safe order instead of recomputing them.
+
+## How To Spot It
+
+Phrasing tells:
+
+- "Number of ways" or "count distinct ways"
+- "Minimum", "maximum", "fewest", "best", or "optimal"
+- "Longest" or "shortest" subject to rules
+- "Can this be formed/segmented/reached?"
+- Choices that include or exclude an item, index, character, or amount
+
+Constraint tells:
+
+- Plain recursion would branch heavily, but many branches share the same remaining index, amount, or prefix.
+- `n` is moderate enough that `O(n²)` is acceptable, especially for subsequence or two-string comparisons.
+- Target amounts or capacities are small enough to build a table up to that value.
+- Inputs have natural prefixes: arrays, strings, steps, amounts, or two sequences.
+
+Quick examples: climbing stairs asks for a count, coin change asks for a minimum over smaller amounts, and common subsequence problems compare prefixes.
+
+## When It's Not The Right Pattern
+
+- Use greedy when a local choice can be proven to stay globally optimal. If you can safely take the best-looking choice now without reconsidering, DP may be unnecessary.
+- Use plain recursion when the search tree is tiny or states are not reused. Memoization helps repeated states, not one-off branches.
+- Use sliding window when the answer is a contiguous range and the window can move monotonically. DP is more common when choices can skip items, split prefixes, or compare many prior states.
+- Use graph traversal when the problem is mainly reachability among explicit nodes and edges, unless the graph is really a state graph with repeated subproblems.
+
+## Basic Mechanics
+
+Use the same checklist every time:
+
+1. State: define the smaller question in plain English.
+2. Recurrence: describe how this answer is built from smaller answers.
+3. Base Case: fill answers that need no work.
+4. Order: choose an iteration or recursion order that computes dependencies first.
+5. Answer: return the entry or accumulated value that matches the original question.
+
+A bottom-up 1D template:
+
+```ts
+function solve(input: Input): Answer {
+  const n = getSize(input);
+  const dp: Answer[] = Array(n + 1).fill(initialValue);
+
+  dp[baseIndex] = baseAnswer;
+
+  for (let i = firstUnsolved; i <= n; i++) {
+    for (const choice of choicesFor(i, input)) {
+      dp[i] = combine(dp[i], dp[previousIndex(i, choice)]);
+    }
+  }
+
+  return dp[n];
+}
+```
+
+A memoized recursion template:
+
+```ts
+function solve(input: Input): Answer {
+  const memo = new Map<string, Answer>();
+
+  function dfs(state: State): Answer {
+    const key = encode(state);
+
+    if (isBase(state)) return baseAnswer(state);
+    if (memo.has(key)) return memo.get(key)!;
+
+    let answer = initialAnswer(state);
+
+    for (const next of nextStates(state, input)) {
+      answer = combine(answer, dfs(next));
+    }
+
+    memo.set(key, answer);
+    return answer;
+  }
+
+  return dfs(startState(input));
+}
+```
 
 ## Common Sub-Shapes
 
-- 1D linear DP: each position depends on one or two earlier positions.
-- Knapsack-style DP: each target amount/capacity tries every option.
-- Subsequence DP: each element can extend earlier compatible answers.
-- String segmentation DP: each prefix may be reachable from a valid earlier prefix.
-- 2D grid DP: each cell compares prefixes of two inputs.
+- 1D Linear DP: each position depends on earlier positions. Common for steps, running choices, and adjacent restrictions.
+- Knapsack-Style Amounts: each amount or capacity tries available options and reuses smaller amounts.
+- Subsequence DP: each index asks how it can extend a valid earlier index while preserving order.
+- String Segmentation: each prefix asks whether it can be split after some earlier valid prefix.
+- 2D Two-String Tables: each cell compares two prefixes and depends on neighboring smaller prefix cells.
 
-## Problem Tips
+## Complexity Profile
 
-### 01. Climbing Stairs
+The cost is usually:
 
-- Tell: ways to reach step `n` depends on ways to reach earlier steps.
-- Tip: write out the first few values by hand and look for the recurrence.
-- Watch out: a recursive brute force repeats a lot of work.
+- Number of states × transitions tried per state.
+- Space for the table or memo storing those states.
 
-### 02. House Robber
+Examples of the shape:
 
-- Tell: each house creates a choice between taking it and skipping its neighbor, or skipping it.
-- Tip: track the best result with and without the current house.
-- Watch out: a locally large house is not always part of the best total.
+- `n` positions with constant transitions: `O(n)` time, `O(n)` space.
+- `amount` targets trying `k` options: `O(amount * k)` time, `O(amount)` space.
+- `n` indexes comparing to all earlier indexes: `O(n²)` time, `O(n)` space.
+- Two strings of lengths `m` and `n`: `O(mn)` time and `O(mn)` space.
 
-### 03. Coin Change
+Space can often be reduced when a state only needs a few previous values or the previous row of a table. Do this after the recurrence is correct; a full table is easier to reason about first.
 
-- Tell: the best answer for an amount can be built from smaller amounts.
-- Tip: compute the minimum coins needed for every amount from 0 up to the target.
-- Watch out: return -1 when the target amount is unreachable.
+## Common Pitfalls
 
-### 04. Longest Increasing Subsequence
-
-- Tell: you need the longest ordered-by-index sequence where values keep increasing.
-- Tip: decide whether `dp[i]` means the best subsequence ending at `i` or use a tails array.
-- Watch out: subsequences do not need to be contiguous.
-
-### 05. Word Break
-
-- Tell: a string can be split into dictionary words, and each prefix can depend on an earlier prefix.
-- Tip: let `dp[i]` mean `s.slice(0, i)` can be segmented.
-- Watch out: dictionary words may be reused.
-
-### 06. Longest Common Subsequence
-
-- Tell: you are comparing two strings while preserving order but allowing skipped characters.
-- Tip: use a 2D table where each cell answers for two prefixes.
-- Watch out: subsequence is not substring; characters do not need to be contiguous.
+- Wrong base cases: off-by-one errors often come from unclear meanings for `dp[0]`, empty prefixes, or the first item.
+- Unsafe iteration order: if `dp[i]` reads `dp[j]`, make sure `dp[j]` has already been computed.
+- Confusing subsequence with substring: subsequences preserve order but may skip items; substrings must be contiguous.
+- Forgetting unreachable states: use a sentinel like `Infinity` or `false`, and avoid extending states that are not actually possible.
+- Returning the wrong entry: some problems answer `dp[n]`, while others need the best value across all ending positions.
+- Optimizing space too early: rolling variables and one-row tables are easy to get wrong before the dependency direction is clear.

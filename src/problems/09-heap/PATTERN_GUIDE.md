@@ -1,24 +1,101 @@
-# Heap Pattern Guide
+# Heap / Priority Queue Pattern Guide
 
-Use a heap or priority queue when you repeatedly need the current largest or smallest item while values are being considered.
+A heap, often used as a priority queue, keeps cheap repeated access to the current minimum or maximum item. The core idea is to avoid fully sorting every value when all you need is the next best, next worst, or a small ranked frontier.
 
-## When To Think Heap
+## How To Spot It
 
-- The prompt asks for kth largest, kth smallest, top k, or repeated highest-priority choices.
-- Sorting everything works, but you only need a small ranked frontier.
-- New values can enter while the best or worst current value needs to leave.
+Look for prompts that ask for ranked extremes or repeated priority choices:
 
-## Core Template
+- `k` largest, `k` smallest, `top k`, or `kth` largest/smallest.
+- A stream of values where you need to keep the current best few items.
+- Merging sorted sources, such as sorted arrays, lists, or event streams.
+- Repeated `extract-min` / `extract-max` behavior, even if the prompt does not use heap language.
 
-1. Decide whether the heap should expose the smallest or largest item.
-2. Push candidates into the heap.
-3. Pop when the heap is too large or when you need the next priority item.
-4. Return the heap top or the last popped value, depending on the problem.
+## When It's Not The Right Pattern
 
-## Problem Tips
+- If `k` is close to `n`, a full sort is often simpler and may be perfectly acceptable.
+- If the task only needs frequencies or membership, a hash map or set is usually more direct.
+- If you only need one pass with no repeated priority access, a plain variable may be enough.
 
-### 01. Kth Largest Element In An Array
+## Basic Mechanics
 
-- Tell: you need one ranked value, not a fully sorted array.
-- Tip: a min-heap of size `k` keeps the current `k` largest values.
-- Watch out: `k = 1` means the maximum, and `k = nums.length` means the minimum.
+JavaScript and TypeScript do not include a built-in heap. In interviews, a sorted-array or sort-based fallback is often accepted if you state the trade-off: simpler code, but slower inserts/removals or more sorting work.
+
+A minimal binary min-heap stores the smallest value at index `0`:
+
+```ts
+class MinHeap {
+  private data: number[] = [];
+
+  size(): number {
+    return this.data.length;
+  }
+
+  peek(): number | undefined {
+    return this.data[0];
+  }
+
+  push(value: number): void {
+    this.data.push(value);
+    let child = this.data.length - 1;
+
+    while (child > 0) {
+      const parent = Math.floor((child - 1) / 2);
+      if (this.data[parent] <= this.data[child]) break;
+      [this.data[parent], this.data[child]] = [this.data[child], this.data[parent]];
+      child = parent;
+    }
+  }
+
+  pop(): number | undefined {
+    if (this.data.length === 0) return undefined;
+    if (this.data.length === 1) return this.data.pop();
+
+    const top = this.data[0];
+    this.data[0] = this.data.pop()!;
+    let parent = 0;
+
+    while (true) {
+      const left = parent * 2 + 1;
+      const right = parent * 2 + 2;
+      let smallest = parent;
+
+      if (left < this.data.length && this.data[left] < this.data[smallest]) {
+        smallest = left;
+      }
+      if (right < this.data.length && this.data[right] < this.data[smallest]) {
+        smallest = right;
+      }
+      if (smallest === parent) break;
+
+      [this.data[parent], this.data[smallest]] = [this.data[smallest], this.data[parent]];
+      parent = smallest;
+    }
+
+    return top;
+  }
+}
+```
+
+## Common Variations
+
+- Fixed-size heap of `k` items: keep only the best `k` candidates seen so far.
+- Max-heap: negate numeric values or write the comparator in the opposite direction.
+- Two heaps: split values into lower and upper halves when you need a moving middle value.
+- Heap entries with metadata: store tuples or objects when priority and payload differ.
+
+## Complexity Profile
+
+- `push`: `O(log n)`.
+- `pop`: `O(log n)`.
+- `peek`: `O(1)`.
+- Top-`k` with a size-`k` heap: `O(n log k)` time and `O(k)` space.
+- Sorting all values: `O(n log n)` time, often simpler when `k` is large or code speed matters more than asymptotic speed.
+
+## Common Pitfalls
+
+- Mixing up min-heap and max-heap for the task.
+- Using a heap of size `k` but storing the wrong extreme at the top.
+- Popping too early or too late when maintaining a fixed-size heap.
+- Reversing the comparator direction and quietly getting the opposite answer.
+- Forgetting that `kth` largest usually counts duplicates unless the prompt says distinct.
